@@ -1,14 +1,17 @@
 ## How create code for the future
 
+Task: Create an endpoint that receives an image and extracts the text from it.
+
 This project have two big goals:
 
 * Use SOLID an Clean code to create a good solution to our problem.
 * Use GCP(Google Cloud Platform) with Spring Boot to create services with Machine Learning.
-
+* Use Cloudinary service to help with text extraction.
 
 
 
 ### References
 
-[Cloud Vision API - Price](https://cloud.google.com/vision/pricing#prices)
-[Cloud Vision API - GitHub Examples](https://github.com/googleapis/java-vision/)
+* [Cloudinary Service](https://cloudinary.com/invites/lpov9zyyucivvxsnalc5/tax5t3eafznxwitsghjy?t=default)
+* [Cloud Vision API - Price](https://cloud.google.com/vision/pricing#prices)
+* [Cloud Vision API - GitHub Examples](https://github.com/googleapis/java-vision/)
