@@ -2,7 +2,7 @@
 
 Tasks: 
 - [x] Create an endpoint that receives an image and extracts the text from it.
-- [ ] Include the Google OCR and execute the Cloudinary service if Google's service is offline.
+- [x] Include the Google OCR and execute the Cloudinary service if Google's service is offline.
 
 This project have three big goals:
 
