@@ -1,8 +1,10 @@
 ## How create code for the future
 
-Task: Create an endpoint that receives an image and extracts the text from it.
+Tasks: 
+- [x] Create an endpoint that receives an image and extracts the text from it.
+- [ ] Include the Google OCR and execute the Cloudinary service if Google's service is offline.
 
-This project have two big goals:
+This project have three big goals:
 
 * Use SOLID an Clean code to create a good solution to our problem.
 * Use GCP(Google Cloud Platform) with Spring Boot to create services with Machine Learning.
@@ -10,7 +12,7 @@ This project have two big goals:
 
 
 
-### References
+### References 
 
 * [Cloudinary Service](https://cloudinary.com/invites/lpov9zyyucivvxsnalc5/tax5t3eafznxwitsghjy?t=default)
 * [Cloud Vision API - Price](https://cloud.google.com/vision/pricing#prices)
