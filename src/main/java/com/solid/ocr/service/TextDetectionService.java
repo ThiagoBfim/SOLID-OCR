@@ -1,9 +1,11 @@
 package com.solid.ocr.service;
 
+import com.google.cloud.spring.vision.CloudVisionTemplate;
 import com.cloudinary.Cloudinary;
 import com.cloudinary.utils.ObjectUtils;
-import com.solid.ocr.exception.InternalException;
 import com.solid.ocr.resources.MultipartFileWrapper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
 
@@ -19,29 +21,41 @@ import static java.nio.file.Files.createTempFile;
 
 @Service
 public class TextDetectionService {
+    private static final Logger LOGGER = LoggerFactory.getLogger(TextDetectionService.class);
 
     private final Environment environment;
+    private final CloudVisionTemplate cloudVisionTemplate;
 
-    public TextDetectionService(Environment environment) {
+    public TextDetectionService(Environment environment, CloudVisionTemplate cloudVisionTemplate) {
         this.environment = environment;
+        this.cloudVisionTemplate = cloudVisionTemplate;
     }
 
     public String recognize(MultipartFileWrapper imageFile) {
+
+        try {
+            return recognizeByCloudinary(imageFile);
+        } catch (Exception ex) {
+            LOGGER.error("Error extracting text from image with Cloudinary service", ex);
+            return recognizeByGoogle(imageFile);
+        }
+
+    }
+
+    private String recognizeByGoogle(MultipartFileWrapper imageFile) {
+        return this.cloudVisionTemplate.extractTextFromImage(imageFile.getResource());
+    }
+
+    private String recognizeByCloudinary(MultipartFileWrapper imageFile) throws IOException {
         Cloudinary cloudinary = new Cloudinary(ObjectUtils.asMap(
                 "cloud_name", "bomfim",
                 "api_key", environment.getProperty("cloudinary.api-key"),
                 "api_secret", environment.getProperty("cloudinary.api-secret")));
+        File tempFile = createTmpFile(imageFile);
+        Map upload = cloudinary.uploader().upload(tempFile, ObjectUtils.asMap("ocr", "adv_ocr"));
 
-        try {
-            File tempFile = createTmpFile(imageFile);
-            Map upload = cloudinary.uploader().upload(tempFile, ObjectUtils.asMap("ocr", "adv_ocr"));
-
-            Object text = getTextFromImage(tempFile, upload);
-            return "Text from image: " + text;
-        } catch (IOException ex) {
-            throw new InternalException("Error creating the file", ex);
-        }
-
+        Object text = getTextFromImage(tempFile, upload);
+        return "Text from image: " + text;
     }
 
     private Object getTextFromImage(File tempFile, Map upload) throws IOException {
