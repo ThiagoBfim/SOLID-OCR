@@ -12,10 +12,19 @@ import static org.assertj.core.api.Assertions.assertThat;
 class AbstractTextOCRTest {
 
     @Test
-    void shouldRetriveTextFromImage() {
+    void shouldRetriveTextFromImageWithoutCotesStorage() {
         AbstractTextOCRMock abstractTextOCRMock = new AbstractTextOCRMock(null);
         String text = abstractTextOCRMock.retrieveTextFromImage(null);
         assertThat(text).isEqualTo("empty");
+    }
+
+    @Test
+    void shouldRetriveTextFromImageWithCotesStorage() {
+        AbstractTextOCRMock abstractTextOCRMock = new AbstractTextOCRMock(new CotesStorageLocal(1L));
+        String text = abstractTextOCRMock.retrieveTextFromImage(null);
+        assertThat(text).isEqualTo("empty"); //1 Cotes Available
+        text = abstractTextOCRMock.retrieveTextFromImage(null);
+        assertThat(text).isNull(); //0 Cotes Available
     }
 
     @Test

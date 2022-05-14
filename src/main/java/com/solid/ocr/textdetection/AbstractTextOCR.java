@@ -10,9 +10,10 @@ import java.util.Optional;
 public abstract class AbstractTextOCR {
 
     @Nullable
-    public String retrieveTextFromImage(MultipartFileWrapper imageFile){
+    public String retrieveTextFromImage(MultipartFileWrapper imageFile) {
         long availableCotes = getAvailableCotes();
         if (availableCotes > 0) {
+            getCotesStorage().ifPresent(ICotesStorage::decrementLimit);
             return extractText(imageFile);
         }
         return null;
