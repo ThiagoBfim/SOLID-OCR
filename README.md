@@ -3,6 +3,7 @@
 Tasks: 
 - [x] Create an endpoint that receives an image and extracts the text from it.
 - [x] Include the Google OCR and execute the Cloudinary service if Google's service is offline.
+- [ ] Include the Cotes Storage to prevent charge :)
 
 This project have three big goals:
 
