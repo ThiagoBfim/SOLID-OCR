@@ -62,4 +62,14 @@ public class CloudinaryTextOCR extends AbstractTextOCR {
         return tempFile;
     }
 
+
+    @Override
+    public void decrementLimit() {
+        /* N/A */
+    }
+
+    @Override
+    public long getAvailableCotes() {
+        return 1L;
+    }
 }

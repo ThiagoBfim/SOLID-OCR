@@ -20,13 +20,22 @@ public class TextDetectionService {
     }
 
     public String recognize(MultipartFileWrapper imageFile) {
-        String text = cloudinaryTextOCR.retrieveTextFromImage(imageFile);
-        if (text == null) {
-            return cloudVisionTextOCR.retrieveTextFromImage(imageFile);
-        } else {
+        if (cloudinaryTextOCR.getAvailableCotes() > 0) {
+            String text = cloudinaryTextOCR.retrieveTextFromImage(imageFile);
+            if (text == null) {
+                return extractFromCloudVisionOrNull(imageFile);
+            }
             return text;
+        } else {
+            return extractFromCloudVisionOrNull(imageFile);
         }
+    }
 
+    private String extractFromCloudVisionOrNull(MultipartFileWrapper imageFile) {
+        if (cloudVisionTextOCR.getAvailableCotes() > 0) {
+            return cloudVisionTextOCR.retrieveTextFromImage(imageFile);
+        }
+        return null;
     }
 
 }

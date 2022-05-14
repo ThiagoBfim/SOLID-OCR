@@ -9,4 +9,7 @@ public abstract class AbstractTextOCR {
     @Nullable
     public abstract String retrieveTextFromImage(MultipartFileWrapper imageFile);
 
+    public abstract void decrementLimit();
+
+    public abstract long getAvailableCotes();
 }
