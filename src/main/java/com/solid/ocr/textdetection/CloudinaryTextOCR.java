@@ -4,6 +4,7 @@ import com.cloudinary.Cloudinary;
 import com.cloudinary.utils.ObjectUtils;
 import com.google.cloud.spring.vision.CloudVisionTemplate;
 import com.solid.ocr.resources.MultipartFileWrapper;
+import com.solid.ocr.storage.ICotesStorage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.env.Environment;
@@ -13,10 +14,7 @@ import org.springframework.stereotype.Service;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.UUID;
+import java.util.*;
 
 import static java.nio.file.Files.createTempFile;
 
@@ -33,7 +31,7 @@ public class CloudinaryTextOCR extends AbstractTextOCR {
 
     @Nullable
     @Override
-    public String retrieveTextFromImage(MultipartFileWrapper imageFile) {
+    public String extractText(MultipartFileWrapper imageFile) {
         try {
             Cloudinary cloudinary = new Cloudinary(ObjectUtils.asMap(
                     "cloud_name", "bomfim",
@@ -64,12 +62,7 @@ public class CloudinaryTextOCR extends AbstractTextOCR {
 
 
     @Override
-    public void decrementLimit() {
-        /* N/A */
-    }
-
-    @Override
-    public long getAvailableCotes() {
-        return 1L;
+    protected Optional<ICotesStorage> getCotesStorage() {
+        return Optional.empty();
     }
 }
