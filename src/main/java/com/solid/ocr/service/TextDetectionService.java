@@ -5,6 +5,8 @@ import com.solid.ocr.textdetection.CloudVisionTextOCR;
 import com.solid.ocr.textdetection.CloudinaryTextOCR;
 import org.springframework.stereotype.Service;
 
+import java.io.IOException;
+
 import static java.nio.file.Files.createTempFile;
 
 @Service
@@ -20,22 +22,11 @@ public class TextDetectionService {
     }
 
     public String recognize(MultipartFileWrapper imageFile) {
-        if (cloudinaryTextOCR.getAvailableCotes() > 0) {
-            String text = cloudinaryTextOCR.retrieveTextFromImage(imageFile);
-            if (text == null) {
-                return extractFromCloudVisionOrNull(imageFile);
-            }
-            return text;
-        } else {
-            return extractFromCloudVisionOrNull(imageFile);
-        }
-    }
-
-    private String extractFromCloudVisionOrNull(MultipartFileWrapper imageFile) {
-        if (cloudVisionTextOCR.getAvailableCotes() > 0) {
+        String ocrText = cloudinaryTextOCR.retrieveTextFromImage(imageFile);
+        if (ocrText == null) {
             return cloudVisionTextOCR.retrieveTextFromImage(imageFile);
         }
-        return null;
+        return ocrText;
     }
 
 }
