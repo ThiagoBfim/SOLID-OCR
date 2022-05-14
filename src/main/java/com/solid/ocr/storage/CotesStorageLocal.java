@@ -7,21 +7,21 @@ public class CotesStorageLocal implements ICotesStorage {
 
     private final long limit;
     private AtomicLong usage;
-    private LocalDate lastUsage;
+    private LocalDate monthUsage;
 
     public CotesStorageLocal(long limit) {
         this.limit = limit;
-        usage = new AtomicLong(limit);
+        initialize();
     }
 
-    private void restartLimit() {
+    private void initialize() {
         usage = new AtomicLong(limit);
+        monthUsage = LocalDate.now();
     }
 
     @Override
     public void decrementLimit() {
         usage.decrementAndGet();
-        lastUsage = LocalDate.now();
     }
 
     @Override
@@ -31,8 +31,8 @@ public class CotesStorageLocal implements ICotesStorage {
     }
 
     private void restartEachMonth() {
-        if (lastUsage.getMonth().getValue() < LocalDate.now().getMonth().getValue()) {
-            restartLimit();
+        if (monthUsage.getMonth().getValue() < LocalDate.now().getMonth().getValue()) {
+            initialize();
         }
     }
 }
