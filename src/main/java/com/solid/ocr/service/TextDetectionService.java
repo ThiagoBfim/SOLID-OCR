@@ -25,6 +25,7 @@ public class TextDetectionService {
             if (text == null) {
                 return extractFromCloudVisionOrNull(imageFile);
             }
+            cloudinaryTextOCR.decrementLimit();
             return text;
         } else {
             return extractFromCloudVisionOrNull(imageFile);
@@ -33,7 +34,11 @@ public class TextDetectionService {
 
     private String extractFromCloudVisionOrNull(MultipartFileWrapper imageFile) {
         if (cloudVisionTextOCR.getAvailableCotes() > 0) {
-            return cloudVisionTextOCR.retrieveTextFromImage(imageFile);
+            String text = cloudVisionTextOCR.retrieveTextFromImage(imageFile);
+            if (text != null) {
+                cloudinaryTextOCR.decrementLimit();
+                return text;
+            }
         }
         return null;
     }
