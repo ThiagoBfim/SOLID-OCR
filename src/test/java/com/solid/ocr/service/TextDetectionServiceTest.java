@@ -3,28 +3,15 @@ package com.solid.ocr.service;
 import com.solid.ocr.resources.MultipartFileWrapper;
 import com.solid.ocr.textdetection.CloudVisionTextOCR;
 import com.solid.ocr.textdetection.CloudinaryTextOCR;
+import com.solid.ocr.textdetection.MicrosoftTextOCR;
 import org.assertj.core.api.Assertions;
-import org.junit.Before;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.junit.runner.RunWith;
-import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
-import org.mockito.junit.MockitoJUnitRunner;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.http.MediaType;
-import org.springframework.mock.web.MockMultipartFile;
-import org.springframework.test.annotation.IfProfileValue;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.test.context.junit4.SpringRunner;
 
 import java.io.IOException;
-import java.util.Objects;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
@@ -41,9 +28,12 @@ class TextDetectionServiceTest {
     @Mock
     private CloudVisionTextOCR cloudVisionTextOCR;
 
+    @Mock
+    private MicrosoftTextOCR microsoftTextOCR;
+
     @BeforeEach
     public void setUp() {
-        textDetectionService = new TextDetectionService(cloudinaryTextOCR, cloudVisionTextOCR);
+        textDetectionService = new TextDetectionService(cloudinaryTextOCR, cloudVisionTextOCR, microsoftTextOCR);
     }
 
     @Test
@@ -60,5 +50,14 @@ class TextDetectionServiceTest {
         String recognize = textDetectionService.recognize(mock(MultipartFileWrapper.class));
         Assertions.assertThat(recognize).isEqualTo("Cloudinary");
         verify(cloudVisionTextOCR, never()).retrieveTextFromImage(any());
+    }
+
+    @Test
+    void shouldRecognizeWithMicrosoft() throws IOException {
+        when(cloudinaryTextOCR.retrieveTextFromImage(any())).thenReturn(null);
+        when(cloudVisionTextOCR.retrieveTextFromImage(any())).thenReturn(null);
+        when(microsoftTextOCR.retrieveTextFromImage(any())).thenReturn("Microsoft");
+        String recognize = textDetectionService.recognize(mock(MultipartFileWrapper.class));
+        Assertions.assertThat(recognize).isEqualTo("Microsoft");
     }
 }
