@@ -5,6 +5,7 @@ Tasks:
 - [x] Include the Google OCR and execute the Cloudinary service if Google's service is offline.
 - [x] Include the Cotes Storage to prevent charge :)
 - [x] Include Text in Storage to be quickly search
+- [x] Include other OCR service
 
 This project have three big goals:
 
