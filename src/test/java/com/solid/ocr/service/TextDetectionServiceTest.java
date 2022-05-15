@@ -47,7 +47,7 @@ class TextDetectionServiceTest {
     }
 
     @Test
-    void shouldRecognizeWithCloudVision() {
+    void shouldRecognizeWithCloudVision() throws IOException {
         when(cloudinaryTextOCR.retrieveTextFromImage(any())).thenReturn(null);
         when(cloudVisionTextOCR.retrieveTextFromImage(any())).thenReturn("CloudVision");
         String recognize = textDetectionService.recognize(mock(MultipartFileWrapper.class));
@@ -55,7 +55,7 @@ class TextDetectionServiceTest {
     }
 
     @Test
-    void shouldRecognizeWithCloudinary() {
+    void shouldRecognizeWithCloudinary() throws IOException {
         when(cloudinaryTextOCR.retrieveTextFromImage(any())).thenReturn("Cloudinary");
         String recognize = textDetectionService.recognize(mock(MultipartFileWrapper.class));
         Assertions.assertThat(recognize).isEqualTo("Cloudinary");

@@ -2,9 +2,9 @@ package com.solid.ocr.textdetection;
 
 import com.cloudinary.Cloudinary;
 import com.cloudinary.utils.ObjectUtils;
-import com.google.cloud.spring.vision.CloudVisionTemplate;
 import com.solid.ocr.resources.MultipartFileWrapper;
-import com.solid.ocr.storage.ICotesStorage;
+import com.solid.ocr.storage.IStorage;
+import com.solid.ocr.storage.StorageLocalWithoutCotes;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.env.Environment;
@@ -62,7 +62,7 @@ public class CloudinaryTextOCR extends AbstractTextOCR {
 
 
     @Override
-    protected Optional<ICotesStorage> getCotesStorage() {
-        return Optional.empty();
+    protected Optional<IStorage> getStorage() {
+        return Optional.of(new StorageLocalWithoutCotes());
     }
 }

@@ -2,15 +2,12 @@ package com.solid.ocr.textdetection;
 
 import com.google.cloud.spring.vision.CloudVisionTemplate;
 import com.solid.ocr.resources.MultipartFileWrapper;
-import com.solid.ocr.storage.CotesStorageLocal;
-import com.solid.ocr.storage.ICotesStorage;
+import com.solid.ocr.storage.StorageLocal;
+import com.solid.ocr.storage.IStorage;
 import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Service;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Optional;
-import java.util.concurrent.atomic.AtomicLong;
 
 @Service
 public class CloudVisionTextOCR extends AbstractTextOCR {
@@ -28,8 +25,8 @@ public class CloudVisionTextOCR extends AbstractTextOCR {
     }
 
     @Override
-    protected Optional<ICotesStorage> getCotesStorage() {
-        return Optional.of(new CotesStorageLocal(10L));
+    protected Optional<IStorage> getStorage() {
+        return Optional.of(new StorageLocal(10L));
     }
 
 }
