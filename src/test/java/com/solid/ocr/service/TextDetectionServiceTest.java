@@ -12,6 +12,7 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.io.IOException;
+import java.util.Arrays;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
@@ -33,7 +34,7 @@ class TextDetectionServiceTest {
 
     @BeforeEach
     public void setUp() {
-        textDetectionService = new TextDetectionService(cloudinaryTextOCR, cloudVisionTextOCR, microsoftTextOCR);
+        textDetectionService = new TextDetectionService(Arrays.asList(cloudinaryTextOCR, cloudVisionTextOCR, microsoftTextOCR));
     }
 
     @Test

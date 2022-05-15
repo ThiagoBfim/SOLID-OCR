@@ -6,6 +6,7 @@ import com.solid.ocr.resources.MultipartFileWrapper;
 import com.solid.ocr.storage.ICotesStorage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.core.annotation.Order;
 import org.springframework.core.env.Environment;
 import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Service;
@@ -18,6 +19,7 @@ import java.util.*;
 import static java.nio.file.Files.createTempFile;
 
 @Service
+@Order(0)
 public class CloudinaryTextOCR extends AbstractTextOCR {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(CloudinaryTextOCR.class);

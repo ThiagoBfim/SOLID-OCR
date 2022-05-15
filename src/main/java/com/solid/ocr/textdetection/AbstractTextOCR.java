@@ -2,6 +2,7 @@ package com.solid.ocr.textdetection;
 
 import com.solid.ocr.resources.MultipartFileWrapper;
 import com.solid.ocr.storage.ICotesStorage;
+import com.solid.ocr.storage.ITextStorage;
 import com.solid.ocr.storage.LocalTextStorage;
 import org.springframework.lang.Nullable;
 
@@ -38,7 +39,7 @@ public abstract class AbstractTextOCR {
 
     protected abstract Optional<ICotesStorage> getCotesStorage();
 
-    protected LocalTextStorage getTextStorage() {
+    protected ITextStorage getTextStorage() {
         return new LocalTextStorage();
     }
 
