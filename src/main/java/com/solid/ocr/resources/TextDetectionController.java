@@ -1,9 +1,5 @@
 package com.solid.ocr.resources;
 
-import com.cloudinary.Cloudinary;
-import com.cloudinary.utils.ObjectUtils;
-import com.solid.ocr.exception.BadRequestException;
-import com.solid.ocr.exception.InternalException;
 import com.solid.ocr.service.TextDetectionService;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

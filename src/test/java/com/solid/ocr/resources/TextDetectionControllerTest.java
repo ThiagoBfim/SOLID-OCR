@@ -43,4 +43,21 @@ class TextDetectionControllerTest {
                 .andExpect(content().string(containsString("GOOD")))
                 .andExpect(content().string(containsString("MORNING")));
     }
+
+    @Test
+    public void textRecognizeWithWrongResource() throws Exception {
+        when(textDetectionService.recognize(any())).thenReturn("GOOD MORNING");
+        MockMultipartFile file =
+                new MockMultipartFile(
+                        "file",
+                        "good-morning",
+                        MediaType.APPLICATION_OCTET_STREAM_VALUE,
+                        new byte[10]);
+
+        mvc.perform(MockMvcRequestBuilders.multipart("/recognize")
+                .file(file)
+                .characterEncoding("UTF-8"))
+                .andExpect(status().isBadRequest())
+                .andExpect(status().reason(containsString("Wrong parameter")));
+    }
 }
