@@ -3,8 +3,7 @@ package com.solid.ocr.textdetection;
 import com.cloudinary.Cloudinary;
 import com.cloudinary.utils.ObjectUtils;
 import com.solid.ocr.resources.MultipartFileWrapper;
-import com.solid.ocr.storage.IStorage;
-import com.solid.ocr.storage.StorageLocalWithoutCotes;
+import com.solid.ocr.storage.ICotesStorage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.env.Environment;
@@ -48,6 +47,11 @@ public class CloudinaryTextOCR extends AbstractTextOCR {
         }
     }
 
+    @Override
+    protected Optional<ICotesStorage> getCotesStorage() {
+        return Optional.empty();
+    }
+
     private Object getTextFromImage(File tempFile, Map upload) throws IOException {
         Files.deleteIfExists(tempFile.toPath());
         return ((HashMap) ((HashMap) ((ArrayList) ((HashMap) ((HashMap) ((HashMap) upload.get("info")).get("ocr"))
@@ -60,9 +64,4 @@ public class CloudinaryTextOCR extends AbstractTextOCR {
         return tempFile;
     }
 
-
-    @Override
-    protected Optional<IStorage> getStorage() {
-        return Optional.of(new StorageLocalWithoutCotes());
-    }
 }

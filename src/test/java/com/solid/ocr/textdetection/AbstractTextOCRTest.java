@@ -1,8 +1,8 @@
 package com.solid.ocr.textdetection;
 
 import com.solid.ocr.resources.MultipartFileWrapper;
-import com.solid.ocr.storage.StorageLocal;
-import com.solid.ocr.storage.IStorage;
+import com.solid.ocr.storage.CotesStorageLocal;
+import com.solid.ocr.storage.ICotesStorage;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
@@ -26,7 +26,7 @@ class AbstractTextOCRTest {
 
     @Test
     void shouldRetriveTextFromImageWithCotesStorage() throws IOException {
-        AbstractTextOCRMock abstractTextOCRMock = new AbstractTextOCRMock(new StorageLocal(1L));
+        AbstractTextOCRMock abstractTextOCRMock = new AbstractTextOCRMock(new CotesStorageLocal(1L));
         MultipartFileWrapper mock = mock(MultipartFileWrapper.class);
         when(mock.getHash()).thenReturn(new Random().toString());
 
@@ -44,16 +44,16 @@ class AbstractTextOCRTest {
     void shouldNotRetriveTextFromImage() throws IOException {
         MultipartFileWrapper mock = mock(MultipartFileWrapper.class);
         when(mock.getHash()).thenReturn(new Random().toString());
-        AbstractTextOCRMock abstractTextOCRMock = new AbstractTextOCRMock(new StorageLocal(0L));
+        AbstractTextOCRMock abstractTextOCRMock = new AbstractTextOCRMock(new CotesStorageLocal(0L));
         String text = abstractTextOCRMock.retrieveTextFromImage(mock);
         assertThat(text).isNull();
     }
 
     static class AbstractTextOCRMock extends AbstractTextOCR {
 
-        private final IStorage storage;
+        private final ICotesStorage storage;
 
-        AbstractTextOCRMock(IStorage storage) {
+        AbstractTextOCRMock(ICotesStorage storage) {
             this.storage = storage;
         }
 
@@ -63,7 +63,7 @@ class AbstractTextOCRTest {
         }
 
         @Override
-        protected Optional<IStorage> getStorage() {
+        protected Optional<ICotesStorage> getCotesStorage() {
             return Optional.ofNullable(storage);
         }
     }
