@@ -5,8 +5,8 @@ import java.time.LocalDateTime;
 public class TextDetection {
 
     private final String hashFile;
-    private LocalDateTime time;
-    private String text;
+    private final LocalDateTime time;
+    private final String text;
 
     public TextDetection(String hashFile, String text, LocalDateTime time) {
         this.hashFile = hashFile;
@@ -20,18 +20,6 @@ public class TextDetection {
 
     public String getText() {
         return text;
-    }
-
-    public void setText(String text) {
-        this.text = text;
-    }
-
-    public void setTime(LocalDateTime time) {
-        this.time = time;
-    }
-
-    public boolean isNotExpired() {
-        return !isExpired();
     }
 
     public boolean isExpired() {

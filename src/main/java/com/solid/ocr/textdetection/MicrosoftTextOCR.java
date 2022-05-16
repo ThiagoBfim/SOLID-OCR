@@ -13,11 +13,10 @@ import java.util.Optional;
 @Order(2)
 public class MicrosoftTextOCR extends AbstractTextOCR {
 
-
     @Nullable
     @Override
     public String extractText(MultipartFileWrapper imageFile) {
-        return "EMPTY"; //TODO include other implementation of OCR
+        return "EMPTY"; //TODO include Microsoft implementation of OCR
     }
 
     @Override

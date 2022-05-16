@@ -34,12 +34,12 @@ public class CloudinaryTextOCR extends AbstractTextOCR {
     @Override
     public String extractText(MultipartFileWrapper imageFile) {
         try {
-            Cloudinary cloudinary = new Cloudinary(ObjectUtils.asMap(
+            var cloudinary = new Cloudinary(ObjectUtils.asMap(
                     "cloud_name", "bomfim",
                     "api_key", environment.getProperty("cloudinary.api-key"),
                     "api_secret", environment.getProperty("cloudinary.api-secret")));
-            File tempFile = createTmpFile(imageFile);
-            Map upload = cloudinary.uploader().upload(tempFile, ObjectUtils.asMap("ocr", "adv_ocr"));
+            var tempFile = createTmpFile(imageFile);
+            var upload = cloudinary.uploader().upload(tempFile, ObjectUtils.asMap("ocr", "adv_ocr"));
 
             Object text = getTextFromImage(tempFile, upload);
             return "Text from image: " + text;
@@ -61,7 +61,7 @@ public class CloudinaryTextOCR extends AbstractTextOCR {
     }
 
     private File createTmpFile(MultipartFileWrapper file) throws IOException {
-        File tempFile = createTempFile(String.valueOf(UUID.randomUUID()), file.getOriginalFilename()).toFile();
+        var tempFile = createTempFile(String.valueOf(UUID.randomUUID()), file.getOriginalFilename()).toFile();
         file.copyToFile(tempFile);
         return tempFile;
     }

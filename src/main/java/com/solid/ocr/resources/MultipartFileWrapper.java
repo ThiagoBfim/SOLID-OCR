@@ -62,7 +62,7 @@ public class MultipartFileWrapper {
     }
 
     public void copyToFile(File file) {
-        try (FileOutputStream fos = new FileOutputStream(file)) {
+        try (var fos = new FileOutputStream(file)) {
             fos.write(multipartFile.getBytes());
         } catch (Exception ex) {
             throw new InternalException("Error creating the file", ex);

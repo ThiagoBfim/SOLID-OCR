@@ -19,7 +19,7 @@ public class TextDetectionController {
 
     @PostMapping
     public String recognize(@RequestParam("file") MultipartFile file) {
-        MultipartFileWrapper imageFile = new MultipartFileWrapper(file);
+        var imageFile = new MultipartFileWrapper(file);
         return textDetectionService.recognize(imageFile);
     }
 }
