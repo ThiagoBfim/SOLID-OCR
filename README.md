@@ -17,9 +17,9 @@ In this project we apply SOLID to build a REST API to receive an Image and retur
 - [x] Include another OCR service
 
 
-<img width="600" src="../images/9_DIP.png?raw=true" alt='Project UML'>
+<img width="600" src="images/9_DIP.png?raw=true" alt='Project UML'>
 
-To access the UML go to [Draw.io](https://www.draw.io/) and upload this file [SOLID](../images/SOLID.drawio)
+To access the UML go to [Draw.io](https://www.draw.io/) and upload this file [SOLID](images/SOLID.drawio)
 
 ### Technologies:
 
