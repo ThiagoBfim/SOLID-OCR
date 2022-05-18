@@ -8,6 +8,16 @@ In this project we apply SOLID to build a REST API to receive an Image and retur
 * Use GCP(Google Cloud Platform) with Spring Boot to create services with Machine Learning.
 * Use Cloudinary service to help with text extraction.
 
+### How to run it
+
+- Install Java 11
+- Install Maven
+- Include two properties in the application.properties:
+    - cloudinary.api-key=$YOUR_API_KEY
+    - cloudinary.api-secret=$YOUR_API_SECRET
+- Log-in Google Console API, and enable Google Vision API
+- Execute: `mvn spring-boot:run`
+
 ### Tasks:
  
 - [x] Create an endpoint that receives an image and extracts the text from it.
