@@ -1,10 +1,11 @@
 ## Applying SOLID with OCR project
 
-In this project we apply SOLID to build a REST API to receive an Image and return the text from this Image.
+In this project, we apply SOLID to build a REST API to receive an Image and return the text from this image.
 
-### This project have three big goals:
 
-* Use SOLID an Clean code to create a good solution to our problem.
+### This project has three big goals:
+
+* Use SOLID and Clean code to create an excellent solution to our problem.
 * Use GCP(Google Cloud Platform) with Spring Boot to create services with Machine Learning.
 * Use Cloudinary service to help with text extraction.
 
@@ -13,17 +14,17 @@ In this project we apply SOLID to build a REST API to receive an Image and retur
 - Install Java 11
 - Install Maven
 - Include two properties in the application.properties:
-    - cloudinary.api-key=$YOUR_API_KEY
-    - cloudinary.api-secret=$YOUR_API_SECRET
+    - `cloudinary.api-key=$YOUR_API_KEY`
+    - `cloudinary.api-secret=$YOUR_API_SECRET`
 - Log-in Google Console API, and enable Google Vision API
 - Execute: `mvn spring-boot:run`
 
 ### Tasks:
  
-- [x] Create an endpoint that receives an image and extracts the text from it.
-- [x] Include the Google OCR and execute the Cloudinary service if Google's service is offline.
+- [x] Create an endpoint that receives an image and extracts the text.
+- [x] Include the Google OCR and execute it if the Cloudinary service is offline.
 - [x] Include the Cotes Storage to prevent charge :)
-- [x] Include Text in Storage to be quickly search
+- [x] Include Text in Storage to be quickly searched
 - [x] Include another OCR service
 
 
