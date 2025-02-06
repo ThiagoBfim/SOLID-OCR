@@ -25,3 +25,8 @@ Solution:
 
 ![7_ISP.png](images/7_ISP.png)
 
+5. We want to add a new OCR service, Microsoft's.
+
+Solution:
+
+![8_NOT_DIP.png](images/8_NOT_DIP.png)

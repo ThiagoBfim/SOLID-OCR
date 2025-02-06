@@ -9,3 +9,4 @@
 
 4. Estamos recebendo muitas requisições, queremos armazenar o texto gerado em Banco de dados.
 
+5. Queremos adicionar a um novo serviço de OCR, o da Microsoft.
