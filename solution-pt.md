@@ -4,4 +4,4 @@
 
 Solution:
 
-![0_NOT SRP.png](images/0_NOT_SRP.png)
+![1 SRP.png](images/1_SRP.png)
