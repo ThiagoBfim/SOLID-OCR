@@ -2,4 +2,5 @@
 
 1. Create an endpoint to receive an image and extract text from it using OCR (Optical Character Recognition).
 
-2. We want to evolve to store quotas, and if a provider's quota is exceeded, it should retrieve from another provider.
+2. We want to evolve to support both Google and Cloudinary services.
+   If the Cloudinary service is unavailable, the request should be made to Google.
