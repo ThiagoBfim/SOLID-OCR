@@ -18,3 +18,9 @@ Solution:
 Solution:
 
 ![5_LSP.png](images/5_LSP.png)
+
+4. Estamos recebendo muitas requisições, queremos armazenar o texto gerado em Banco de dados.
+
+Solution:
+
+![6_NOT_ISP.png](images/6_NOT_ISP.png)

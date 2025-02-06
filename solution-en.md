@@ -19,4 +19,9 @@ Solution:
 
 ![5_LSP.png](images/5_LSP.png)
 
+4. We are receiving many requests and want to store the generated text in a database.
+
+Solution:
+
+![6_NOT_ISP.png](images/6_NOT_ISP.png)
 
