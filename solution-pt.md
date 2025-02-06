@@ -17,4 +17,4 @@ Solution:
 
 Solution:
 
-![5_ISP.png](images/5_ISP.png)
+![5_LSP.png](images/5_LSP.png)
