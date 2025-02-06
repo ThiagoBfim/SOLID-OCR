@@ -29,4 +29,4 @@ Solution:
 
 Solution:
 
-![8_NOT_DIP.png](images/8_NOT_DIP.png)
+![9_DIP.png](images/9_DIP.png)
