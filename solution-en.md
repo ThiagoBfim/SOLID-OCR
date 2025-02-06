@@ -23,5 +23,5 @@ Solution:
 
 Solution:
 
-![6_NOT_ISP.png](images/6_NOT_ISP.png)
+![7_ISP.png](images/7_ISP.png)
 
