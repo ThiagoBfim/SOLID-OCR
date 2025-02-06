@@ -10,4 +10,4 @@ Solution:
 
 Solution:
 
-![2 NOT_OCP.png](images/2_NOT_OCP.png)
+![3 OCP.png](images/3_OCP.png)
