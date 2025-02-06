@@ -17,7 +17,6 @@ public class TextDetectionService {
 
     private final List<AbstractTextOCR> textOCRService;
 
-    @SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
     public TextDetectionService(List<AbstractTextOCR> textOCRService) {
         this.textOCRService = textOCRService;
     }

@@ -2,7 +2,6 @@
 
 In this project, we apply SOLID to build a REST API to receive an Image and return the text from this image.
 
-
 ### This project has three big goals:
 
 * Use SOLID and Clean code to create an excellent solution to our problem.
@@ -11,7 +10,7 @@ In this project, we apply SOLID to build a REST API to receive an Image and retu
 
 ### How to run it
 
-- Install Java 11
+- Install Java 21
 - Install Maven
 - Include two properties in the application.properties:
     - `cloudinary.api-key=$YOUR_API_KEY`
@@ -34,7 +33,7 @@ To access the UML go to [Draw.io](https://www.draw.io/) and upload this file [SO
 
 ### Technologies:
 
-* Java 11
+* Java 21
 * Spring MVC
 * Spring Cloud GCP
 * Junit
