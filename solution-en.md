@@ -6,7 +6,7 @@ Solução:
 
 ![1SRP.png](images/1_SRP.png)
 
-2. We want to evolve to support both Google and Claudinary services.
+2. We want to evolve to support both Google and Cloudinary services.
    If the Claudinary service is unavailable, the request should be made to Google.
 
 Solution:
