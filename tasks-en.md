@@ -4,3 +4,5 @@
 
 2. We want to evolve to support both Google and Cloudinary services.
    If the Cloudinary service is unavailable, the request should be made to Google.
+
+3. We want to evolve to store quotas, and if a provider's quota is exceeded, it should retrieve from another provider.

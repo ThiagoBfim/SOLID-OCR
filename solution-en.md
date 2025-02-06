@@ -13,6 +13,11 @@ Solution:
 
 ![3 OCP.png](images/3_OCP.png)
 
+3. We want to evolve to store quotas, and if a provider's quota is exceeded, it should retrieve from another provider.
+
+Solution:
+
+![4_NOT_ISP.png](images/4_NOT_ISP.png)
 
 
 

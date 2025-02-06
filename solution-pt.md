@@ -12,3 +12,9 @@ Solution:
 Solution:
 
 ![3 OCP.png](images/3_OCP.png)
+
+3. Queremos evoluir para armazenar as cotas, e caso exceda as cotas de um provedor, ele deverá buscar no outro provedor.
+
+Solution:
+
+![4_NOT_ISP.png](images/4_NOT_ISP.png)
