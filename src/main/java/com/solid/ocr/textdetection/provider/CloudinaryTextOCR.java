@@ -1,9 +1,10 @@
-package com.solid.ocr.textdetection;
+package com.solid.ocr.textdetection.provider;
 
 import com.cloudinary.Cloudinary;
 import com.cloudinary.utils.ObjectUtils;
 import com.solid.ocr.resources.MultipartFileWrapper;
 import com.solid.ocr.storage.ICotesStorage;
+import com.solid.ocr.textdetection.AbstractTextOCR;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.annotation.Order;

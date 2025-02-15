@@ -1,7 +1,7 @@
 package com.solid.ocr.textdetection;
 
 import com.solid.ocr.resources.MultipartFileWrapper;
-import com.solid.ocr.storage.CotesStorageLocal;
+import com.solid.ocr.storage.provider.CotesStorageLocal;
 import com.solid.ocr.storage.ICotesStorage;
 import org.junit.jupiter.api.Test;
 
