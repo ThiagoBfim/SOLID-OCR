@@ -17,10 +17,10 @@ public class MultipartFileWrapper {
 
     public MultipartFileWrapper(MultipartFile multipartFile) {
         this.multipartFile = multipartFile;
-        validIsImage();
+        validateImage();
     }
 
-    private void validIsImage() {
+    private void validateImage() {
         validFile(multipartFile);
         String extension = getFileExtension(Objects.requireNonNull(multipartFile.getOriginalFilename()));
 
