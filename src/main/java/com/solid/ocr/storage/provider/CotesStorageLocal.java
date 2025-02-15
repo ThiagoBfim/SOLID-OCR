@@ -1,4 +1,6 @@
-package com.solid.ocr.storage;
+package com.solid.ocr.storage.provider;
+
+import com.solid.ocr.storage.ICotesStorage;
 
 import java.time.LocalDate;
 import java.util.concurrent.atomic.AtomicLong;

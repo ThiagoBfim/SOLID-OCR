@@ -1,14 +1,11 @@
-package com.solid.ocr.storage;
+package com.solid.ocr.storage.provider;
 
 import com.solid.ocr.entity.TextDetection;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.LocalTime;
 import java.util.Optional;
-
 
 class LocalTextStorageTest {
 

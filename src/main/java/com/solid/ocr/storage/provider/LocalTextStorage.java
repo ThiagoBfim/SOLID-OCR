@@ -1,7 +1,8 @@
-package com.solid.ocr.storage;
+package com.solid.ocr.storage.provider;
 
 import com.google.common.annotations.VisibleForTesting;
 import com.solid.ocr.entity.TextDetection;
+import com.solid.ocr.storage.ITextStorage;
 import org.apache.commons.lang3.StringUtils;
 
 import java.time.LocalDateTime;

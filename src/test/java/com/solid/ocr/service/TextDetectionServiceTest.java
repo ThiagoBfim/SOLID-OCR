@@ -1,9 +1,9 @@
 package com.solid.ocr.service;
 
 import com.solid.ocr.resources.MultipartFileWrapper;
-import com.solid.ocr.textdetection.CloudVisionTextOCR;
-import com.solid.ocr.textdetection.CloudinaryTextOCR;
-import com.solid.ocr.textdetection.MicrosoftTextOCR;
+import com.solid.ocr.textdetection.provider.CloudVisionTextOCR;
+import com.solid.ocr.textdetection.provider.CloudinaryTextOCR;
+import com.solid.ocr.textdetection.provider.MicrosoftTextOCR;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

@@ -3,7 +3,7 @@ package com.solid.ocr.textdetection;
 import com.solid.ocr.resources.MultipartFileWrapper;
 import com.solid.ocr.storage.ICotesStorage;
 import com.solid.ocr.storage.ITextStorage;
-import com.solid.ocr.storage.LocalTextStorage;
+import com.solid.ocr.storage.provider.LocalTextStorage;
 import org.springframework.lang.Nullable;
 
 import java.io.IOException;
