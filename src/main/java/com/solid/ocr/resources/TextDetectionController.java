@@ -35,7 +35,7 @@ public class TextDetectionController {
                 "api_key", environment.getProperty("cloudinary.api-key"),
                 "api_secret", environment.getProperty("cloudinary.api-secret")));
 
-        isValidImage(file);
+        isImageValid(file);
 
         try {
             java.io.File tempFile = getResource(file);
@@ -59,7 +59,7 @@ public class TextDetectionController {
         return createTmpFile(file);
     }
 
-    private void isValidImage(MultipartFile file) {
+    private void isImageValid(MultipartFile file) {
         if (Objects.isNull(file)) {
             throw new BadRequestException("File must not be empty");
         }
